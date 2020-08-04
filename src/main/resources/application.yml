@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bootcamp
+    username: postgres
+    password: pg123456
+
+flyway:
+   enabled: true
+   clean-disabled: true
+   baseline-on-migrate: true
+   baseline-version: 0
+   locations:
+      - classpath:db/migration/postgres
+
+mybatis:
+  type-aliases-package: com.kingland.bootcamp.domain
+  mapper-locations: classpath:mapper/*.xml
