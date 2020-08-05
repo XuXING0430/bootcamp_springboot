@@ -30,6 +30,6 @@ public class DatabaseConnectionTest {
     public void testDao(){
 
         Account testAccount = accountDao.findAccountByName("livepool");
-        Assert.assertEquals(testAccount.getPassword(), "18942020");
+        Assert.assertEquals(testAccount.getPassword(), "MTg5NDIwMjA=");
     }
 }
