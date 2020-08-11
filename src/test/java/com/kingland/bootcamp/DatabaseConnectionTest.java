@@ -3,8 +3,8 @@
  */
 package com.kingland.bootcamp;
 
-import com.kingland.bootcamp.dao.AccountDao;
-import com.kingland.bootcamp.domian.Account;
+import com.kingland.bootcamp.mapper.AccountMapper;
+import com.kingland.bootcamp.domain.Account;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,23 +13,37 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * @author KSC
  *
  * Test Database Connection.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = SecurityApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+
 public class DatabaseConnectionTest {
 
     @Autowired
-    private AccountDao accountDao;
+    private AccountMapper accountMapper;
 
     @Test
-    public void testDao(){
+    public void testAccountDao(){
 
-        Account testAccount = accountDao.findAccountByName("livepool");
+        Account testAccount = accountMapper.findAccountByName("livepool");
         Assert.assertEquals(testAccount.getPassword(), "MTg5NDIwMjA=");
     }
+
+    @Test
+    public void testfindAll(){
+
+        List<Account> allAccounts = accountMapper.getAllAccounts();
+
+        for (Account allAccount : allAccounts) {
+            System.out.println(allAccount.toString());
+        }
+    }
+
 }

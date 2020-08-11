@@ -7,17 +7,17 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.annotation.PostConstruct;
 /**
  * @author KSC
  *
- * Init springboot
  */
 @SpringBootApplication
-@MapperScan("com.kingland.bootcamp.dao")
-public class Application {
+@MapperScan("com.kingland.bootcamp.mapper")
+public class SecurityApplication {
 
     public static void main(String[] args) {
-        //init program
-        SpringApplication.run(Application.class,args);
+
+        SpringApplication.run(SecurityApplication.class, args);
     }
 }

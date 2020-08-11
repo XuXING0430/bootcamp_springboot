@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 /**
  * @author KSC
  *
@@ -27,7 +28,7 @@ public class DBPropertiesTest {
     @Test
     public void testDataProperties() {
         Assert.assertEquals(databaseProperties.getUrl(), "jdbc:postgresql://localhost:5432/bootcamp");
-        Assert.assertEquals(databaseProperties.getUsername(), "postgres");
+        Assert.assertEquals(databaseProperties.getUsername(), "db.migration");
         Assert.assertEquals(databaseProperties.getPassword(), "pg123456");
     }
 

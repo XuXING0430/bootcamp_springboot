@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "b176a218-636c-444e-aea4-739bb0fafb46",
+		"name": "Test API - Get Authoried",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test API - Get Authoried",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f2a1228a-48b8-49e1-bc74-a1a7d901f2ec",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Your test user is authenticated\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.authenticated).to.eql(true);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/authentication/form?username=test4&password=123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"authentication",
+						"form"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "test4"
+						},
+						{
+							"key": "password",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
