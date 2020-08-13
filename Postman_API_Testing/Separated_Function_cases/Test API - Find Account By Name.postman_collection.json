@@ -1,0 +1,100 @@
+{
+  "info": {
+    "_postman_id": "f221821c-33d1-49b5-8231-35c6a4a8e446",
+    "name": "Test API - Find Account By Name",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Test API - Find Account By Name",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "29d84141-2e40-4393-9382-40383fad1c88",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Body matches string\", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"userId\");",
+              "});",
+              "",
+              "pm.test(\"Your test userId\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.userId).to.eql(3);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "username",
+            "value": "test4",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "password",
+            "value": "123456",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "username",
+              "value": "test4",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8888/api/findAccountByName?username=test1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8888",
+          "path": [
+            "api",
+            "findAccountByName"
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "test1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
