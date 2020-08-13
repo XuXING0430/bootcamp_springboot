@@ -6,7 +6,6 @@ package com.kingland.bootcamp.common;
 
 /**
  * @author KSC
- *
  */
 public class SecurityConst {
 

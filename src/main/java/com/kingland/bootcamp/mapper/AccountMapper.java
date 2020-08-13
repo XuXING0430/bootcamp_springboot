@@ -11,15 +11,29 @@ import java.util.List;
 
 /**
  * @author KSC
- *
  */
 @Component
 public interface AccountMapper {
-
+    /**
+     * find account by username
+     *
+     * @param username
+     * @return
+     */
     Account findAccountByName(@Param("username") String username);
 
+    /**
+     * add accounts
+     *
+     * @param account
+     */
     void addAccounts(Account account);
 
+    /**
+     * get all the accounts
+     *
+     * @return
+     */
     List<Account> getAllAccounts();
 
 }

@@ -17,7 +17,6 @@ import java.io.IOException;
 
 /**
  * @author KSC
- *
  */
 @Component
 public class MyAuthenticationFailureHandler implements AuthenticationFailureHandler {
@@ -25,13 +24,19 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
     @Autowired
     private ObjectMapper mapper;
 
+    /**
+     * define the authentication failure
+     * @param request
+     * @param response
+     * @param exception
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
                                         AuthenticationException exception) throws IOException, ServletException {
-
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType("application/json;charset=utf-8");
         response.getWriter().write(mapper.writeValueAsString(exception.getMessage()));
-
     }
 }

@@ -12,12 +12,15 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.security.NoSuchAlgorithmException;
+
 import static org.junit.Assert.assertTrue;
 
 /**
- * @author KSC
+ * Test the BootcampPasswordEncoder two methods
  *
+ * @author KSC
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = SecurityApplication.class)
@@ -31,6 +34,7 @@ public class BootcampPasswordEncoderTest {
 
     /**
      * test the password is encrypt in SHA-256 or not
+     *
      * @throws NoSuchAlgorithmException
      */
     @Test
@@ -41,13 +45,14 @@ public class BootcampPasswordEncoderTest {
     }
 
     /**
-     * test the password is encrypt in SHA-256 or not
+     * test the matches method work
+     *
      * @throws NoSuchAlgorithmException
      */
     @Test
     public void testBCPasswordEncoderMatches() throws NoSuchAlgorithmException {
         Account testAccount = accountMapper.findAccountByName("test1");
         String encodePassword = bootcampPasswordEncoder.encode(testAccount.getPassword());
-        assertTrue(bootcampPasswordEncoder.matches(testAccount.getPassword(),encodePassword));
+        assertTrue(bootcampPasswordEncoder.matches(testAccount.getPassword(), encodePassword));
     }
 }

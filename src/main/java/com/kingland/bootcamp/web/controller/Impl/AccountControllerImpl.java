@@ -13,36 +13,56 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author KSC
+ * The account controller
  *
+ * @author KSC
  */
-
 @RestController
 public class AccountControllerImpl implements AccountController {
 
     @Autowired
     private AccountService accountService;
 
-    @RequestMapping(value = "/api/findAccountByName",method = RequestMethod.GET)
-    public Account findAccountByName(@RequestParam(value = "username",required = true) String username){
+    /**
+     * Find account information by account name
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    @RequestMapping(value = "/api/findAccountByName", method = RequestMethod.GET)
+    public Account findAccountByName(@RequestParam(value = "username", required = true) String username) {
         return accountService.findAccountByName(username);
     }
 
-    @RequestMapping(value = "/api/findAllAccounts",method = RequestMethod.GET)
-    public List<Account> getALLAccounts(){
-
+    /**
+     * Find all the accounts
+     * @return
+     */
+    @Override
+    @RequestMapping(value = "/api/findAllAccounts", method = RequestMethod.GET)
+    public List<Account> getALLAccounts() {
         return accountService.getAllAccounts();
     }
 
-    @RequestMapping(value = "/api/addAccount",method = RequestMethod.GET)
-    public void addAccounts(Account account){
-
+    /**
+     * Add a account with username and password
+     * @param account
+     */
+    @Override
+    @RequestMapping(value = "/api/addAccount", method = RequestMethod.GET)
+    public void addAccounts(Account account) {
         accountService.addAccounts(account);
     }
 
+    /**
+     * Check the if the account is authorized
+     * @param authentication
+     * @return
+     */
+    @Override
     @GetMapping("index")
-    public Object index(Authentication authentication) {
-
+    public Authentication index(Authentication authentication) {
         return authentication;
     }
 }

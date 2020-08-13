@@ -3,8 +3,8 @@ plugins {
     id 'war'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'com.kingland'
+version '1.0.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -25,7 +25,7 @@ dependencies {
 
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.25.0'
     testCompile group: 'org.jmockit', name: 'jmockit', version: '1.9'
-//    compile group: 'org.flywaydb', name: 'flyway-core', version: '6.5.3'
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '6.5.3'
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter-test', version: '2.1.3'
 }

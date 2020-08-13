@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS bootcamp.accounts;
 
-CREATE TABLE accounts  (
-	user_id bigserial PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS accounts  (
+	user_id bigserial PRIMARY KEY NOT NULL,
 	username text UNIQUE NOT NULL,
 	password text NOT NULL
 );

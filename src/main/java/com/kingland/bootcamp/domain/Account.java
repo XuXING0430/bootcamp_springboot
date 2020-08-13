@@ -10,7 +10,6 @@ import java.io.Serializable;
 
 /**
  * @author KSC
- *
  */
 public class Account implements Serializable {
     private static final long serialVersionUID = 325L;
@@ -18,22 +17,22 @@ public class Account implements Serializable {
     private Long userId;
 
     @NotNull
-    @Size(min = 4,max = 20, message = "username length not valid")
+    @Size(min = 4, max = 20, message = "username length not valid")
     @Pattern(regexp = "^[a-zA-Z0-9_]$", message = "Only letters numbers and underscores are allowed")
     private String username;
 
     @NotNull
-    @Size(min = 8,max = 40, message = "password length not valid")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",message = "The password is not valid")
+    @Size(min = 8, max = 40, message = "password length not valid")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "The password is not valid")
     private String password;
 
     private boolean accountNonExpired = true;
 
-    private boolean accountNonLocked= true;
+    private boolean accountNonLocked = true;
 
-    private boolean credentialsNonExpired= true;
+    private boolean credentialsNonExpired = true;
 
-    private boolean enabled= true;
+    private boolean enabled = true;
 
     public Long getUserId() {
         return userId;

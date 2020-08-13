@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author KSC
+ * The interface of BrowserSecurityController
  *
+ * @author KSC
  */
 public interface BrowserSecurityController {
-
     BaseResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException;
-
 }

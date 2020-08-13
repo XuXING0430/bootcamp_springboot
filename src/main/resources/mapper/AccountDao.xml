@@ -24,7 +24,7 @@
         insert into accounts (username, password) values (#{username}, #{password})
     </insert>
 
-    <select id="getAllAccounts" resultType="com.kingland.bootcamp.domain.Account">
+    <select id="getAllAccounts" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from accounts

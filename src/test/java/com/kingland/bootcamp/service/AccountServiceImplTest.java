@@ -11,17 +11,16 @@ import mockit.NonStrictExpectations;
 import org.junit.Before;
 import org.junit.Test;
 import mockit.Mocked;
-import java.util.ArrayList;
-import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test AccountServiceImpl
  *
  * @author KSC
- *
  */
-
 public class AccountServiceImplTest {
 
     private AccountServiceImpl serviceImpl;
@@ -35,8 +34,11 @@ public class AccountServiceImplTest {
         Deencapsulation.setField(serviceImpl, "accountMapper", accountMapper);
     }
 
+    /**
+     * Test find account by name is correct
+     */
     @Test
-    public void findAccountByName_correct(){
+    public void findAccountByName_correct() {
         String username = "test1";
         new NonStrictExpectations() {
             {
@@ -45,27 +47,30 @@ public class AccountServiceImplTest {
             }
         };
         Object returnObj = serviceImpl.findAccountByName(username);
-
         assertTrue(returnObj instanceof Account);
     }
 
+    /**
+     * add accounts is correct
+     */
     @Test
-    public void addAccounts_correct(){
+    public void addAccounts_correct() {
         Account testAccount = new Account();
         testAccount.setUsername("test1");
         testAccount.setPassword("12345678");
-
         new NonStrictExpectations() {
             {
                 Deencapsulation.invoke(accountMapper, "addAccounts", testAccount);
             }
         };
-         serviceImpl.addAccounts(testAccount);
+        serviceImpl.addAccounts(testAccount);
     }
 
+    /**
+     * get all accounts is correct
+     */
     @Test
-    public void getAllAccounts_correct(){
-
+    public void getAllAccounts_correct() {
         new NonStrictExpectations() {
             {
                 Deencapsulation.invoke(accountMapper, "getAllAccounts");
@@ -73,7 +78,6 @@ public class AccountServiceImplTest {
             }
         };
         Object returnObj = serviceImpl.getAllAccounts();
-
         assertTrue(returnObj instanceof ArrayList<?>);
     }
 }

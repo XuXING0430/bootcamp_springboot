@@ -15,7 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 /**
  * @author KSC
- *
  */
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -26,18 +25,20 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyAuthenticationFailureHandler authenticationFailureHandler;
 
-
     @Bean
-    public BootcampPasswordEncoder bootcampPasswordEncoder(){
-
+    public BootcampPasswordEncoder bootcampPasswordEncoder() {
         return new BootcampPasswordEncoder();
     }
 
+    /**
+     * config the account login
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //Form login
         http.formLogin()
-
                 // Login Jump URL
                 .loginPage(SecurityConst.AUTH_REQUIRE)
                 // Processing form login URL
@@ -50,7 +51,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 // Authorization configuration
                 .authorizeRequests()
                 //Login redirect URL without authentication
-                .antMatchers(SecurityConst.AUTH_REQUIRE, "/login.html","/register.html").permitAll()
+                .antMatchers(SecurityConst.AUTH_REQUIRE, "/login.html").permitAll()
                 // All requests
                 .anyRequest()
                 // All need certification

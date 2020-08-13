@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * @author KSC
- *
  * Get database properties values.
+ *
+ * @author KSC
  */
 @Component
 public class DatabaseProperties {

@@ -1,8 +1,7 @@
 /**
  * Copyright 2020 Kingland Systems Corporation. All Rights Reserved.
  */
-
-package com.kingland.bootcamp;
+package com.kingland.bootcamp.basic;
 
 import com.kingland.bootcamp.utils.DatabaseProperties;
 import org.junit.Assert;
@@ -13,11 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * @author KSC
- *
  * Test database properties values
+ *
+ * @author KSC
  */
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = DatabaseProperties.class)
 public class DBPropertiesTest {
@@ -31,5 +29,4 @@ public class DBPropertiesTest {
         Assert.assertEquals(databaseProperties.getUsername(), "db.migration");
         Assert.assertEquals(databaseProperties.getPassword(), "pg123456");
     }
-
 }

@@ -22,8 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author KSC
+ * The BrowserSecurityController implements the interface
  *
+ * @author KSC
  */
 @RestController
 public class BrowserSecurityControllerImpl implements BrowserSecurityController {
@@ -32,17 +33,22 @@ public class BrowserSecurityControllerImpl implements BrowserSecurityController 
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws IOException
+     */
     @GetMapping(SecurityConst.AUTH_REQUIRE)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public BaseResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         if (savedRequest != null) {
             String targetUrl = savedRequest.getRedirectUrl();
-//            log.info();
             if (StringUtils.endsWithIgnoreCase(targetUrl, ".html"))
                 redirectStrategy.sendRedirect(request, response, "/login.html");
         }
-
         return new BaseResponse("Accessed resources require identity authentication！");
     }
 }

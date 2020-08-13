@@ -1,6 +1,8 @@
+/**
+ * Copyright 2020 Kingland Systems Corporation. All Rights Reserved.
+ */
 package com.kingland.bootcamp.security.browser;
 
-import com.kingland.bootcamp.domain.Account;
 import com.kingland.bootcamp.mapper.AccountMapper;
 import mockit.Deencapsulation;
 import mockit.Mocked;
@@ -27,6 +29,9 @@ public class AccountDetailServiceTest {
         Deencapsulation.setField(detailService,"accountMapper",accountMapper);
     }
 
+    /**
+     * test load user by username is correct
+     */
     @Test
     public void loadUserByUsername_correct(){
         String username = "test1";

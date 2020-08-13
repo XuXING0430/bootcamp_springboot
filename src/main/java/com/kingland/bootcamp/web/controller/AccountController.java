@@ -12,18 +12,40 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author KSC
+ * The interface of AccountController
  *
+ * @author KSC
  */
-
 public interface AccountController {
 
+    /**
+     * find account by name
+     *
+     * @param username
+     * @return
+     */
     Account findAccountByName(String username);
 
+    /**
+     * get all accounts
+     *
+     * @return
+     */
     List<Account> getALLAccounts();
 
+    /**
+     * add accounts
+     *
+     * @param account
+     */
     void addAccounts(Account account);
 
-    Object index(Authentication authentication);
+    /**
+     * get the authentication
+     *
+     * @param authentication
+     * @return
+     */
+    Authentication index(Authentication authentication);
 
 }

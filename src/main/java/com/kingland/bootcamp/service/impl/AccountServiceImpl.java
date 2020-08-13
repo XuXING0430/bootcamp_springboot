@@ -13,8 +13,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @author KSC
+ * Implements AccountService
  *
+ * @author KSC
  */
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -27,24 +28,26 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account findAccountByName(String username) {
-
         return accountMapper.findAccountByName(username);
     }
 
     /**
      * encrypt password before insert it in database
+     *
      * @return
      */
     @Override
     public void addAccounts(Account account) {
-
         account.setPassword(bootcampPasswordEncoder.encode(account.getPassword()));
         accountMapper.addAccounts(account);
     }
 
+    /**
+     * get all accounts
+     * @return
+     */
     @Override
     public List<Account> getAllAccounts() {
-
         return accountMapper.getAllAccounts();
     }
 }

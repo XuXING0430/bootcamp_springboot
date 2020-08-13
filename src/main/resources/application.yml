@@ -7,9 +7,11 @@ spring:
     url: jdbc:postgresql://localhost:5432/bootcamp
     username: postgres
     password: pg123456
+  messages:
+    basename: message/messages
 
 flyway:
-  enabled: false
+  enabled: true
   clean-disabled: true
   baseline-on-migrate: true
   baseline-version: 0
@@ -24,3 +26,6 @@ mybatis:
 
 server:
   port: 8888
+  application:
+     name:bootcamp
+

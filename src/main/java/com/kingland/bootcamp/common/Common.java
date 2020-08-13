@@ -5,7 +5,6 @@ package com.kingland.bootcamp.common;
 
 /**
  * @author KSC
- *
  */
 public class Common {
 
@@ -15,5 +14,4 @@ public class Common {
      * string constant static salt
      */
     public static final String SALT = "kinglandbootcamp";
-
 }

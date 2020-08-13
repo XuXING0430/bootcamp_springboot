@@ -15,13 +15,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-
 /**
- *  Return the account information
+ * Return the account information
  *
  * @author KSC
  */
-
 @Configuration
 @Service
 public class AccountDetailService implements UserDetailsService {
@@ -29,11 +27,17 @@ public class AccountDetailService implements UserDetailsService {
     @Autowired
     private AccountMapper accountMapper;
 
+    /**
+     * load the user by username
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         Account testUser = accountMapper.findAccountByName(username);
-        if (testUser == null){
+        if (testUser == null) {
             throw new UsernameNotFoundException("Could not find user");
         }
 
