@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kingland.bootcamp.mapper.AccountMapper">
+
+    <resultMap id="BaseResultMap" type="com.kingland.bootcamp.domain.Account">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+    </resultMap>
+
+        <sql id="Base_Column_List">
+            user_id,username,password
+        </sql>
+
+    <select id="findAccountByName" resultType="com.kingland.bootcamp.domain.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from accounts
+        where username = #{username}
+
+    </select>
+
+    <insert id="addAccounts" parameterType="com.kingland.bootcamp.domain.Account" >
+        insert into accounts (username, password) values (#{username}, #{password})
+    </insert>
+
+<<<<<<< HEAD
+    <select id="getAllAccounts" resultMap="BaseResultMap">
+=======
+    <select id="getAllAccounts" resultType="com.kingland.bootcamp.domain.Account">
+>>>>>>> dev_branch
+        select
+        <include refid="Base_Column_List"/>
+        from accounts
+    </select>
+
+</mapper>
