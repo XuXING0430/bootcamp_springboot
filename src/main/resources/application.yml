@@ -7,8 +7,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/bootcamp
     username: postgres
     password: pg123456
-  messages:
-    basename: message/messages
 
 flyway:
   enabled: true

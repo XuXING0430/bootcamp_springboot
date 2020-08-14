@@ -3,7 +3,7 @@
  */
 package com.kingland.bootcamp.security.browser;
 
-import com.kingland.bootcamp.common.SecurityConst;
+import com.kingland.bootcamp.common.consts.SecurityConst;
 import com.kingland.bootcamp.handler.MyAuthenticationFailureHandler;
 import com.kingland.bootcamp.handler.MyAuthenticationSuccessHandler;
 import com.kingland.bootcamp.security.password.BootcampPasswordEncoder;
@@ -51,7 +51,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 // Authorization configuration
                 .authorizeRequests()
                 //Login redirect URL without authentication
-                .antMatchers(SecurityConst.AUTH_REQUIRE, "/login.html").permitAll()
+                .antMatchers(SecurityConst.AUTH_REQUIRE, SecurityConst.AUTH_Login).permitAll()
                 // All requests
                 .anyRequest()
                 // All need certification

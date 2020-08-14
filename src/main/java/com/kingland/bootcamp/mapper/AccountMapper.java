@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * account mapper
+ *
  * @author KSC
  */
 @Component

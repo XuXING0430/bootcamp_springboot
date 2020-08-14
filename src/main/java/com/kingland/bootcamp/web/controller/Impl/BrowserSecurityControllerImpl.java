@@ -3,7 +3,8 @@
  */
 package com.kingland.bootcamp.web.controller.Impl;
 
-import com.kingland.bootcamp.common.SecurityConst;
+import com.kingland.bootcamp.common.consts.MessageConst;
+import com.kingland.bootcamp.common.consts.SecurityConst;
 import com.kingland.bootcamp.common.response.BaseResponse;
 import com.kingland.bootcamp.web.controller.BrowserSecurityController;
 import org.springframework.http.HttpStatus;
@@ -47,8 +48,8 @@ public class BrowserSecurityControllerImpl implements BrowserSecurityController 
         if (savedRequest != null) {
             String targetUrl = savedRequest.getRedirectUrl();
             if (StringUtils.endsWithIgnoreCase(targetUrl, ".html"))
-                redirectStrategy.sendRedirect(request, response, "/login.html");
+                redirectStrategy.sendRedirect(request, response, SecurityConst.AUTH_Login);
         }
-        return new BaseResponse("Accessed resources require identity authentication！");
+        return new BaseResponse(MessageConst.DO_NOT_HAVE_ACCESS);
     }
 }

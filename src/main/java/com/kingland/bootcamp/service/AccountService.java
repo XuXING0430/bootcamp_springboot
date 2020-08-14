@@ -11,10 +11,22 @@ import java.util.List;
  * @author KSC
  */
 public interface AccountService {
-
+    /**
+     * find account by username
+     * @param username
+     * @return
+     */
     Account findAccountByName(String username);
 
+    /**
+     * add accounts
+     * @param account
+     */
     void addAccounts(Account account);
 
+    /**
+     * get all accounts
+     * @return
+     */
     List<Account> getAllAccounts();
 }

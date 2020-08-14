@@ -3,6 +3,8 @@
  */
 package com.kingland.bootcamp.domain;
 
+import com.kingland.bootcamp.common.consts.MessageConst;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -14,16 +16,17 @@ import java.io.Serializable;
 public class Account implements Serializable {
     private static final long serialVersionUID = 325L;
 
+    @NotNull
     private Long userId;
 
     @NotNull
-    @Size(min = 4, max = 20, message = "username length not valid")
-    @Pattern(regexp = "^[a-zA-Z0-9_]$", message = "Only letters numbers and underscores are allowed")
+    @Size(min = 4, max = 20, message = MessageConst.LENGTH_NOT_VAILD)
+    @Pattern(regexp = "^[a-zA-Z0-9_]$", message = MessageConst.USERNAME_NOT_VAILD)
     private String username;
 
     @NotNull
-    @Size(min = 8, max = 40, message = "password length not valid")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "The password is not valid")
+    @Size(min = 8, max = 40, message = MessageConst.LENGTH_NOT_VAILD)
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = MessageConst.PASSWORD_NOT_VAILD)
     private String password;
 
     private boolean accountNonExpired = true;

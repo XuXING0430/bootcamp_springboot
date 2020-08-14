@@ -3,6 +3,7 @@
  */
 package com.kingland.bootcamp.security.browser;
 
+import com.kingland.bootcamp.common.consts.MessageConst;
 import com.kingland.bootcamp.mapper.AccountMapper;
 import com.kingland.bootcamp.domain.Account;
 
@@ -38,7 +39,7 @@ public class AccountDetailService implements UserDetailsService {
 
         Account testUser = accountMapper.findAccountByName(username);
         if (testUser == null) {
-            throw new UsernameNotFoundException("Could not find user");
+            throw new UsernameNotFoundException(MessageConst.USER_NOT_FOUND);
         }
 
         return new User(username, testUser.getPassword(), testUser.isEnabled(),
