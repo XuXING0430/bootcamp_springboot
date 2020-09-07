@@ -1,2 +1,2 @@
 # bootcamp_springboot
-First spring boot project inbootcamp
+First spring boot project in bootcamp
